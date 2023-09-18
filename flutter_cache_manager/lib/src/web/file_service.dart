@@ -30,6 +30,9 @@ class HttpFileService extends FileService {
   @override
   Future<FileServiceResponse> get(String url,
       {Map<String, String>? headers}) async {
+        if(url.isEmpty || url == 'null') {
+     returnl;
+    }
     final req = http.Request('GET', Uri.parse(url));
     if (headers != null) {
       req.headers.addAll(headers);
